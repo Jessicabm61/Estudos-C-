@@ -1,0 +1,20 @@
+using System;
+using System.Globalization;
+
+namespace primeiro
+{
+    class primeiro
+    {
+        static void Main(string[] args)
+        {
+            int matricula, horas;
+            float salarioh, salario;
+            matricula = int.Parse(Console.ReadLine());
+            horas = int.Parse(Console.ReadLine());
+            salarioh = float.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            salario = horas * salarioh;
+            Console.WriteLine("NUMBER = " + matricula);
+            Console.WriteLine("SALARY = U$ " + salario.ToString("F2"));
+        }
+    }
+}

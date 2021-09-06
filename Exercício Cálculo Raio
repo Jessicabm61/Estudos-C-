@@ -1,0 +1,16 @@
+using System;
+using System.Globalization;
+
+namespace primeiro
+{
+    class primeiro
+    {
+        static void Main(string[] args)
+        {
+            double raio = float.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+            raio = 3.14159 * Math.Pow(raio, 2);
+            Console.WriteLine("SOMA = {0}", raio.ToString("F4", CultureInfo.InvariantCulture));
+        }
+    }
+}

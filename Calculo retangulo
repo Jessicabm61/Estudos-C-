@@ -1,0 +1,49 @@
+using System;
+
+namespace ex11
+{
+    class retangulo
+    {
+        public double largura;
+        public double altura;
+
+        public double area()
+        { 
+            return largura * altura; 
+        }
+
+        public double perimetro()
+        {
+            return 2 * (largura + altura);
+        }
+
+        public double diagonal()
+        {
+            return Math.Sqrt(Math.Pow(largura, 2) + Math.Pow(altura, 2));
+        }
+    }
+    
+}
+
+using System;
+using System.Globalization;
+
+namespace ex11
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            retangulo t = new retangulo();
+
+            Console.WriteLine("Entre a altura e largura do retângulo: ");
+            t.altura = double.Parse(Console.ReadLine());
+            t.largura = double.Parse(Console.ReadLine());
+
+            Console.WriteLine("AREA: " + t.area().ToString("F2", CultureInfo.InvariantCulture));
+            Console.WriteLine("AREA: " + t.perimetro().ToString("F2", CultureInfo.InvariantCulture));
+            Console.WriteLine("AREA: " + t.diagonal().ToString("F2", CultureInfo.InvariantCulture));
+        }
+    }
+}
+

@@ -31,39 +31,42 @@ namespace ConsoleApp1
     }
 }
 
-
 using System;
 using System.Globalization;
 
 namespace ConsoleApp1
 {
-    class Produto
+    class Program
     {
-        public string nome;
-        public double preço;
-        public int quantidade;
-
-        public double ValorTotalEmEstoque()
+        static void Main(string[] args)
         {
-            return preço * quantidade;
-        }
+            Produto x = new Produto(); //instanciação
 
-        public void AdicionarProdutos(int quantity)
-        {
-            quantidade += quantity;
-        }
-        public void RemoveProdutos(int quantity)
-        {
-            quantidade -= quantity;
-        }
+            x.nome = Console.ReadLine();
+            x.preço = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            x.quantidade = int.Parse(Console.ReadLine());
 
-        public override string ToString() //Para imprimir o objeto
-        {
-            return "Produto: " + nome + " preço: $" + preço.ToString("F2", CultureInfo.InvariantCulture) + " quantidade do produto: " + quantidade;
-        }
+            //Outra forma de imrprimir o objeto seria utilizando o To String dentro da Classe
+            Console.WriteLine(x);
 
+            //O Objeto pode ser impresso conforme abaixo fazendo a chamada do objeto
+           /* Console.WriteLine("PRODUTO: " + x.nome);
+            Console.WriteLine("PREÇO: " + x.preço);
+            Console.WriteLine("VALOR TOTAL ESTOQUE: " + x.ValorTotalEmEstoque()); */ 
+           
+           
+
+            int entradaProduto = int.Parse(Console.ReadLine());
+            x.AdicionarProdutos(entradaProduto);
+
+            Console.WriteLine(x);
+         
+            int saidaProduto = int.Parse(Console.ReadLine());
+            x.RemoveProdutos(saidaProduto);
+
+            Console.WriteLine(x);
+
+        }
     }
 }
-
-
 

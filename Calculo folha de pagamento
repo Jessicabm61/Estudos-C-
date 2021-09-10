@@ -1,0 +1,60 @@
+using System.Globalization;
+using System;
+
+namespace ex11
+{
+    class funcionario
+    {
+        public string Nome;
+        public double SalarioBruto;
+        public double Imposto;
+
+        public void AumentarSalario(double porcentagem) //recebe variável e não retorna nada
+        {
+            SalarioBruto = SalarioBruto + (SalarioBruto * porcentagem) / 100.0;
+        }
+
+        public double SalarioLiquido() //retorna valor double para poder usar na impressão do objeto
+        {
+            return SalarioBruto - Imposto;
+        }
+
+        public override string ToString() //converte o objeto em string
+        {
+            return ("Funcionário: " + Nome + " $" + SalarioLiquido().ToString("F2", CultureInfo.InvariantCulture));
+        }
+       
+    }
+    
+}
+
+
+using System;
+using System.Globalization;
+
+namespace ex11
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            funcionario f = new funcionario(); //instanciação objeto
+
+            Console.Write("NOME: "); //leitura objeto
+            f.Nome = Console.ReadLine();
+            Console.Write("SALARIO BRUTO: ");
+            f.SalarioBruto = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            Console.Write("IMPOSTO: ");
+            f.Imposto = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+            Console.WriteLine(f); //imprime objeto
+
+            Console.WriteLine("Digite a porcentagem para aumentar o salário: "); //leitura objeto
+            double aumento = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            f.AumentarSalario(aumento); //passa variável como referência para a classe
+
+            Console.WriteLine(f); //imprime objeto
+
+        }
+    }
+}

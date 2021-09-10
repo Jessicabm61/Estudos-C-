@@ -1,0 +1,69 @@
+using System;
+using System.Globalization;
+
+namespace ConsoleApp1
+{
+    class Produto
+    {
+        public string nome;
+        public double preço;
+        public int quantidade;
+
+        public double ValorTotalEmEstoque()
+        {
+            return preço * quantidade;
+        }
+
+        public void AdicionarProdutos(int quantity)
+        {
+            quantidade += quantity;
+        }
+        public void RemoveProdutos(int quantity)
+        {
+            quantidade -= quantity;
+        }
+
+        public override string ToString() //Para imprimir o objeto
+        {
+            return "Produto: " + nome + " preço: $" + preço.ToString("F2", CultureInfo.InvariantCulture) + " quantidade do produto: " + quantidade;
+        }
+
+    }
+}
+
+
+using System;
+using System.Globalization;
+
+namespace ConsoleApp1
+{
+    class Produto
+    {
+        public string nome;
+        public double preço;
+        public int quantidade;
+
+        public double ValorTotalEmEstoque()
+        {
+            return preço * quantidade;
+        }
+
+        public void AdicionarProdutos(int quantity)
+        {
+            quantidade += quantity;
+        }
+        public void RemoveProdutos(int quantity)
+        {
+            quantidade -= quantity;
+        }
+
+        public override string ToString() //Para imprimir o objeto
+        {
+            return "Produto: " + nome + " preço: $" + preço.ToString("F2", CultureInfo.InvariantCulture) + " quantidade do produto: " + quantidade;
+        }
+
+    }
+}
+
+
+

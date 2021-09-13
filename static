@@ -1,0 +1,32 @@
+
+namespace Ex2
+{
+    class Conversão
+    {
+        public static double ConversãoDeMoeda(double x, double y)
+        {
+            return (x * y) * 1.06;
+        }
+    }
+}
+
+using System;
+using System.Globalization;
+namespace Ex2
+{
+    class ex2
+    {
+        static void Main(string[] args)
+        {
+            double dolar, quant, result;
+            Console.Write("Qual é a cotação do dólar? ");
+            dolar = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            Console.Write("Quantos dólar você vai comprar? ");
+            quant = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+            result = Conversão.ConversãoDeMoeda(dolar, quant);
+            Console.WriteLine("Valor a ser pago em reais: " + result.ToString("F2", CultureInfo.InvariantCulture));
+        
+        }
+    }
+}

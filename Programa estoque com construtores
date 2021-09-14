@@ -1,0 +1,75 @@
+using System;
+using System.Globalization;
+
+namespace ConsoleApp1
+{
+    class Produto
+    {
+        public string Nome;
+        public double Preço;
+        public int Quantidade;
+
+        public double ValorTotalEmEstoque()
+        {
+            return Preço * Quantidade;
+        }
+
+        public Produto (string nome, double preco, int quantidade) //Construtor
+        {
+            Nome = nome;
+            Preço = preco;
+            Quantidade = quantidade;
+        }
+
+        public void AdicionarProdutos(int quantity)
+        {
+            Quantidade += quantity;
+        }
+        public void RemoveProdutos(int quantity)
+        {
+            Quantidade -= quantity;
+        }
+
+        public override string ToString() //Para imprimir o objeto
+        {
+            return "Produto: " + Nome + " preço: $" + Preço.ToString("F2", CultureInfo.InvariantCulture) + " quantidade do produto: " + Quantidade;
+        }
+
+    }
+}
+
+using System;
+using System.Globalization;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            Console.Write("Entre com o nome do produto: ");
+            string nome = Console.ReadLine();
+            Console.Write("Digite o preço do produto: ");
+            double preço = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            Console.Write("Digite a quantidade do produto: ");
+            int quantidade = int.Parse(Console.ReadLine());
+
+            Produto x = new Produto(nome, preço, quantidade); //instanciação através de construtor
+            Console.WriteLine(x);
+
+            Console.Write("Entre com a quantidade de produtos a adicionar em estoque: ");
+            int entradaProduto = int.Parse(Console.ReadLine());
+            x.AdicionarProdutos(entradaProduto);
+
+            Console.WriteLine(x);
+
+            Console.Write("Entre com a quantidade de produtos de saída do estoque: ");
+            int saidaProduto = int.Parse(Console.ReadLine());
+            x.RemoveProdutos(saidaProduto);
+
+            Console.WriteLine(x);
+
+        }
+    }
+}

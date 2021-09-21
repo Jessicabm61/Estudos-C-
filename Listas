@@ -1,0 +1,51 @@
+using System;
+using System.Collections.Generic;
+
+namespace Exercicio3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<string> lista = new List<string>(); //criando lista vazia e instanciando
+            lista.Add("Jéssica"); //adicionando elementos a lista
+            lista.Add("Alex");
+            lista.Add("Bob");
+            lista.Insert(2, "Marco"); //Adiciona Marco a posição 2 e empurra os elementos já existentes para baixo
+
+            foreach (string obj in lista) //Imprime Lista
+            {
+                Console.WriteLine(obj);
+            }
+
+            Console.WriteLine(lista.Count); //Imprime o tamanho da lista
+
+            string s1 = lista.Find(x => x[0] == 'A');//Encontrará na lista a primeira ocorrencia de um nome que começa com A
+            Console.WriteLine(s1);//Find aguarda um bool como parâmetro, nesse caso foi utilizado uma função lambda 
+
+            string s2 = lista.FindLast(x => x[0] == 'A');//Encontrará na lista a última ocorrencia de um nome que começa com A
+            Console.WriteLine(s2);//Find aguarda um bool como parâmetro, nesse caso foi utilizado uma função lambda 
+
+            int n1 = lista.FindIndex(x => x[0] == 'A');//Encontrará na lista a posição da primeira ocorrencia de um nome que começa com A
+            Console.WriteLine(n1);
+
+            int n2 = lista.FindLastIndex(x => x[0] == 'A');//Encontrará na lista a posição da última ocorrencia de um nome que começa com A
+            Console.WriteLine(n2);
+
+            List<string> lista2 = lista.FindAll(x => x.Length == 5); //Cria uma nova lista com os parâmetros inseridos no parênteses
+                                                                     //Nesse caso foi criado uma nova lista cujo os elementos tenham tamanho 5
+            foreach(string obj in lista2)
+            {
+                Console.WriteLine(obj); //Imprime a nova lista
+            }
+
+            lista.Remove("Alex"); //Remove elementos da lista
+
+            lista.RemoveAll(x => x[0] == 'j'); //Irá remover todos da lista que comecem com a letra J
+
+            lista.RemoveAt(2); //Remove algum elemento da lista de uma posição específica
+
+            lista.RemoveAt(2,2); //A partir da posição dois eu quero remover dois elementos
+        }
+    }
+}

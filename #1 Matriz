@@ -1,0 +1,42 @@
+using System;
+using System.Globalization;
+
+namespace Exercicio_5
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            int n = int.Parse(Console.ReadLine());
+            int[,] matriz = new int[n, n]; //Declara e instancia a matriz
+
+            for (int i = 0; i < n; i++) //percorre linhas
+            {
+                string[] v = Console.ReadLine().Split(' '); //lê uma linha inteira, separa por espaço em branco, e armazena em um vetor. 
+                for (int j = 0; j < n; j++) //percorre colunas
+                {
+                    matriz[i, j] = int.Parse(v[j]); //armazena na matriz o vetor na posição 1, 2 e depois 3
+                }
+            }
+
+            Console.WriteLine("Main diagonal: ");
+
+            for (int i = 0; i < n; i++) //Imprime a matriz na posição 00, 11, 22
+            {
+                Console.WriteLine("Main diagonal: " + matriz[i, i]);
+            }
+
+            int count = 0;
+            for (int i = 0; i < n; i++) //Imprime a quantidade de números negativos
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    if (matriz[i, j] < 0)
+                        count++;
+                }
+            }
+            Console.WriteLine("Negative numbers: " + count);
+        }
+    }
+}
